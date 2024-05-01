@@ -118,6 +118,26 @@ func main() {
 
 	// POINTER SECTION
 	pointer.Explanation()
+
+	testIntPointerValue := 50
+	fmt.Println("testIntPointerValue=", testIntPointerValue)
+	pointer.ChangeIntValue(&testIntPointerValue, 10)
+	fmt.Println("testIntPointerValue (Changed by ChangeIntValue)=", testIntPointerValue)
+
+	testStringPointerValue := "Hello"
+	fmt.Println("testStringPointerValue=", testStringPointerValue)
+	pointer.ChangeStringValue(&testStringPointerValue, "Changed JAAA!!")
+	fmt.Println("testStringPointerValue (Changed by ChangeStringValue)=", testStringPointerValue)
+
+	testSlicePointerValue := []int{1, 4, 7, 8}
+	fmt.Println("testSlicePointerValue=", testSlicePointerValue)
+	pointer.ChangeSliceValue(&testSlicePointerValue, []int{10, 20, 30, 40})
+	fmt.Println("testSlicePointerValue (Changed by ChangeSliceValue)=", testSlicePointerValue)
+
+	testAnyValueToChange := 15
+	fmt.Println("testAnyValueToChange=", testAnyValueToChange)
+	pointer.ChangeValue(&testAnyValueToChange, 30)
+	fmt.Println("testAnyValueToChange (Changed by ChangeValue)=", testAnyValueToChange)
 	// END POINTER SECTION
 }
 

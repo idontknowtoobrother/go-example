@@ -1,6 +1,8 @@
 package pointer
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func Explanation() {
 	// Declare an integer variable
@@ -18,4 +20,27 @@ func Explanation() {
 
 	// x is modified since p points to x
 	fmt.Println("New value of x:", x) // Output: New value of x: 20
+}
+
+func ChangeIntValue(address *int, newVal int) {
+	*address = newVal
+}
+
+func ChangeStringValue(address *string, newVal string) {
+	*address = newVal
+}
+
+func ChangeSliceValue(address *[]int, newVal []int) {
+	*address = newVal
+}
+
+func ChangeValue(address interface{}, newVal interface{}) {
+	switch v := address.(type) {
+	case *int:
+		*v = newVal.(int)
+	case *string:
+		*v = newVal.(string)
+	default:
+		fmt.Println("Unsupported type")
+	}
 }
