@@ -5,6 +5,7 @@ import (
 
 	"github.com/bxcodec/faker/v4"
 	"github.com/google/uuid"
+	"github.com/idontknowtoobrother/go-example/grade"
 	"github.com/idontknowtoobrother/go-example/hexafu"
 	"github.com/idontknowtoobrother/go-example/pracconst"
 )
@@ -24,4 +25,7 @@ func main() {
 	fmt.Printf("\nNEW_FULLNAME=%s", fullname)
 
 	pracconst.Example()
+
+	gradeInfo := fmt.Sprintf("GRADE=%s", grade.GetGrade(50))
+	fmt.Println(gradeInfo)
 }
