@@ -17,10 +17,10 @@ import (
 //
 
 type Transaction struct {
-	TSCID           string  // transaction id
-	DateTime        string  // date time of trasaction
-	Total           float64 // total money in this transaction
-	ToServiceDomain string  // paid to who ?
+	TSCID           string    // transaction id
+	DateTime        time.Time // date time of trasaction
+	Total           float64   // total money in this transaction
+	ToServiceDomain string    // paid to who ?
 }
 
 type LoanAccount struct {
@@ -57,7 +57,7 @@ func (account *LoanAccount) Pay(bill PayBill) bool { // pay to service domain
 
 	newTransaction := Transaction{
 		TSCID:           faker.UUIDDigit(),
-		DateTime:        time.Now().String(),
+		DateTime:        time.Now(),
 		Total:           bill.Total,
 		ToServiceDomain: bill.ToServiceDomain,
 	}
@@ -89,7 +89,7 @@ func GenerateLoanAccounts(total int) map[string]LoanAccount {
 		totalLoad := float64(rand.Intn(100000))
 		mTransction := Transaction{
 			TSCID:           faker.UUIDDigit(),
-			DateTime:        faker.Timestamp(),
+			DateTime:        time.Now(),
 			Total:           float64(rand.Intn(200)),
 			ToServiceDomain: faker.DomainName(),
 		}
