@@ -32,7 +32,7 @@ type LoanAccount struct {
 	Transactions []Transaction // every transactions of user
 }
 
-func GetLoanAccountStruct() LoanAccount {
+func GenerateLoanAccount() LoanAccount {
 	loanAccount1 := LoanAccount{
 		ACCID:        faker.UUIDDigit(),
 		UID:          faker.UUIDDigit(),

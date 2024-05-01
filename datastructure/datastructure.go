@@ -9,7 +9,7 @@ func GetStructure(structureType string) interface{} {
 	} else if structureType == "map" {
 		return GetIntMap()
 	} else if structureType == "struct" {
-		return GetLoanAccountStruct()
+		return GenerateLoanAccount()
 	}
 
 	return nil
