@@ -98,6 +98,21 @@ func main() {
 
 	interfaces.MakeSound(dog)
 	interfaces.MakeSound(person)
+
+	circle := interfaces.Circle{
+		Radius: 30.50,
+	}
+	rectangle := interfaces.Rectangle{
+		Width:  30,
+		Height: 50,
+	}
+	triangle := interfaces.Triangle{
+		Base:   80,
+		Height: 20.5,
+	}
+	fmt.Println("Circle has area=", interfaces.CalculateArea(circle))
+	fmt.Println("Rectangle has area=", interfaces.CalculateArea(rectangle))
+	fmt.Println("Triangle has radius=", interfaces.CalculateArea(triangle))
 	// END INTERFACE SECTION
 
 }
