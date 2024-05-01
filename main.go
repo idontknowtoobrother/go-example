@@ -11,6 +11,7 @@ import (
 	"github.com/idontknowtoobrother/go-example/interfaces"
 	"github.com/idontknowtoobrother/go-example/leetcode"
 	"github.com/idontknowtoobrother/go-example/loop"
+	"github.com/idontknowtoobrother/go-example/pointer"
 	"github.com/idontknowtoobrother/go-example/pracconst"
 )
 
@@ -115,6 +116,9 @@ func main() {
 	fmt.Println("Triangle has radius=", interfaces.CalculateArea(triangle))
 	// END INTERFACE SECTION
 
+	// POINTER SECTION
+	pointer.Explanation()
+	// END POINTER SECTION
 }
 
 func getGradeWithGradeMap(gradeMap map[int]string, score int) string {
