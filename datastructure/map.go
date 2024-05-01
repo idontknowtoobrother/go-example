@@ -29,15 +29,15 @@ func RemoveItemInMapExample() {
 	fmt.Println("UUID-USER-BANK-MAP (After removed)=", userUUIDBankMap)
 }
 
-func IsKeyExistInMap(uid string) bool {
+func IsKeyExistInMap(uid string) (string, bool) {
 
 	// checking is valid key in map ?
 	userNameMap := make(map[string]string)
 	userNameMap["U001"] = "John"
 	userNameMap["U002"] = "Jane"
 
-	_, ok := userNameMap[uid]
-	return ok
+	value, ok := userNameMap[uid]
+	return value, ok
 }
 
 func GetUserMap() {

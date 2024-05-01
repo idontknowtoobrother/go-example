@@ -50,6 +50,13 @@ func main() {
 
 	datastructure.RemoveItemInMapExample()
 
+	findingKey := "U001"
+	value, found := datastructure.IsKeyExistInMap(findingKey)
+	if found {
+		fmt.Printf("Found key=%s exist value=%s\n", findingKey, value)
+	} else {
+		fmt.Printf("Not found key=%s exist value=NULL\n", findingKey)
+	}
 	fmt.Println("TwoSum: nums={1,4,5,2} target=6 / result=", leetcode.TwoSum([]int{1, 4, 5, 2}, 6))
 }
 
