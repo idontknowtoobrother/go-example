@@ -69,6 +69,17 @@ func main() {
 		fmt.Println("Loan account.Transactions=", exLoanAccountStruc.Transactions)
 	}
 
+	exLoadAccounts := datastructure.GetLoanAccountsMap(10)
+	for _, account := range exLoadAccounts {
+		fmt.Println("ACCID: ", account.ACCID)
+		fmt.Println("UID: ", account.UID)
+		fmt.Println("CardNumber: ", account.CardNumber)
+		fmt.Println("CCType: ", account.CCType)
+		fmt.Println("TotalLoan: ", account.TotalLoan)
+		fmt.Println("Balance: ", account.Balance)
+		fmt.Println("Transactions: ", account.Transactions)
+		fmt.Println("---------------------------------")
+	}
 }
 
 func getGradeWithGradeMap(gradeMap map[int]string, score int) string {

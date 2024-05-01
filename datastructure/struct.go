@@ -1,5 +1,7 @@
 package datastructure
 
+import "github.com/bxcodec/faker/v4"
+
 // @ Syntax
 //
 // type <NAME_OF_STRUCT> struct {
@@ -19,6 +21,8 @@ type Transaction struct {
 type LoanAccount struct {
 	ACCID        string        // account id
 	UID          string        // user id
+	CardNumber   string        // card number to use
+	CCType       string        // ex. American Express
 	TotalLoan    float64       // total of loan plan
 	Balance      float64       // current balance
 	Transactions []Transaction // every transactions of user
@@ -26,10 +30,12 @@ type LoanAccount struct {
 
 func GetLoanAccountStruct() LoanAccount {
 	loanAccount1 := LoanAccount{
-		ACCID:        "ACCID105",
-		UID:          "UID102",
-		TotalLoan:    100000,
-		Balance:      100000,
+		ACCID:        faker.UUIDDigit(),
+		UID:          faker.UUIDDigit(),
+		TotalLoan:    100000.99,
+		Balance:      100000.99,
+		CardNumber:   faker.CCNumber(),
+		CCType:       faker.CCType(),
 		Transactions: []Transaction{},
 	}
 

@@ -1,6 +1,11 @@
 package datastructure
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+
+	"github.com/bxcodec/faker/v4"
+)
 
 func GetIntMap() map[int]string {
 
@@ -38,4 +43,35 @@ func IsKeyExistInMap(uid string) (string, bool) {
 
 	value, ok := userNameMap[uid]
 	return value, ok
+}
+
+func GetLoanAccountsMap(total int) map[string]LoanAccount {
+
+	lasm := make(map[string]LoanAccount)
+
+	for i := 0; i < total; i++ {
+		totalLoad := float64(rand.Intn(100000))
+		mTransction := Transaction{
+			TSCID:         faker.UUIDDigit(),
+			DateTime:      faker.Timestamp(),
+			Total:         float64(rand.Intn(200)),
+			ToServiceName: faker.DomainName(),
+		}
+
+		mockLoanAccount := LoanAccount{
+			ACCID:      faker.UUIDDigit(),
+			UID:        faker.UUIDDigit(),
+			CardNumber: faker.CCNumber(),
+			CCType:     faker.CCType(),
+			TotalLoan:  totalLoad,
+			Balance:    totalLoad - mTransction.Total,
+			Transactions: []Transaction{
+				mTransction,
+			},
+		}
+
+		lasm[mockLoanAccount.ACCID] = mockLoanAccount
+	}
+
+	return lasm
 }
