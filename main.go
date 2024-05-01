@@ -6,6 +6,7 @@ import (
 	"github.com/bxcodec/faker/v4"
 	"github.com/google/uuid"
 	"github.com/idontknowtoobrother/go-example/datastructure"
+	"github.com/idontknowtoobrother/go-example/errorhandle"
 	"github.com/idontknowtoobrother/go-example/grade"
 	"github.com/idontknowtoobrother/go-example/hexafu"
 	"github.com/idontknowtoobrother/go-example/interfaces"
@@ -139,6 +140,24 @@ func main() {
 	pointer.ChangeValue(&testAnyValueToChange, 30)
 	fmt.Println("testAnyValueToChange (Changed by ChangeValue)=", testAnyValueToChange)
 	// END POINTER SECTION
+
+	// ERROR HANDLE SECTION
+	xPlayer, err := errorhandle.GetPlayerById(1)
+	if err != nil {
+		fmt.Println(err)
+
+	}
+	fmt.Println(xPlayer)
+	xPlayer.Cash -= 20
+
+	xPlayer, err = errorhandle.GetPlayerById(1)
+	if err != nil {
+		fmt.Println(err)
+
+	}
+	fmt.Println(xPlayer)
+	// END ERROR HANDLE SECTION
+
 }
 
 func getGradeWithGradeMap(gradeMap map[int]string, score int) string {
