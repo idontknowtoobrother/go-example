@@ -8,6 +8,7 @@ import (
 	"github.com/idontknowtoobrother/go-example/datastructure"
 	"github.com/idontknowtoobrother/go-example/grade"
 	"github.com/idontknowtoobrother/go-example/hexafu"
+	"github.com/idontknowtoobrother/go-example/interfaces"
 	"github.com/idontknowtoobrother/go-example/leetcode"
 	"github.com/idontknowtoobrother/go-example/loop"
 	"github.com/idontknowtoobrother/go-example/pracconst"
@@ -59,16 +60,6 @@ func main() {
 	}
 	fmt.Println("TwoSum: nums={1,4,5,2} target=6 / result=", leetcode.TwoSum([]int{1, 4, 5, 2}, 6))
 
-	exLoanAccountStruc, ok := datastructure.GetStructure("struct").(datastructure.LoanAccount)
-	if ok {
-		fmt.Println("Loan account struct=", exLoanAccountStruc)
-		fmt.Println("Loan account.ACCID=", exLoanAccountStruc.ACCID)
-		fmt.Println("Loan account.UID=", exLoanAccountStruc.UID)
-		fmt.Println("Loan account.TotalLoan=", exLoanAccountStruc.TotalLoan)
-		fmt.Println("Loan account.Balance=", exLoanAccountStruc.Balance)
-		fmt.Println("Loan account.Transactions=", exLoanAccountStruc.Transactions)
-	}
-
 	exLoadAccounts := datastructure.GenerateLoanAccounts(10)
 	for _, account := range exLoadAccounts {
 		fmt.Println("ACCID: ", account.ACCID)
@@ -80,6 +71,35 @@ func main() {
 		fmt.Println("Transactions: ", account.Transactions)
 		fmt.Println("---------------------------------")
 	}
+
+	account, ok := datastructure.GetStructure("struct").(datastructure.LoanAccount)
+	if ok {
+		fmt.Println("Loan account struct=", account)
+		fmt.Println("Loan account.ACCID=", account.ACCID)
+		fmt.Println("Loan account.UID=", account.UID)
+		fmt.Println("Loan account.TotalLoan=", account.TotalLoan)
+		fmt.Println("Loan account.Balance=", account.Balance)
+		fmt.Println("Loan account.Transactions=", account.Transactions)
+
+		bill := datastructure.PayBill{
+			ToServiceDomain: "awayfromus.dev",
+			Total:           5680.23,
+		}
+		fmt.Println("Paying bill ", bill)
+		account.Pay(bill)
+		fmt.Println("Loan account.Balance=", account.Balance)
+		fmt.Println("Loan account.Transactions=", account.Transactions)
+
+	}
+
+	// INTERFACE SECTION
+	dog := interfaces.Dog{Name: "Buddy"}
+	person := interfaces.Person{Name: "Alice"}
+
+	interfaces.MakeSound(dog)
+	interfaces.MakeSound(person)
+	// END INTERFACE SECTION
+
 }
 
 func getGradeWithGradeMap(gradeMap map[int]string, score int) string {
