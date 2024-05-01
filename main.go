@@ -69,7 +69,7 @@ func main() {
 		fmt.Println("Loan account.Transactions=", exLoanAccountStruc.Transactions)
 	}
 
-	exLoadAccounts := datastructure.GetLoanAccounts(10)
+	exLoadAccounts := datastructure.GenerateLoanAccounts(10)
 	for _, account := range exLoadAccounts {
 		fmt.Println("ACCID: ", account.ACCID)
 		fmt.Println("UID: ", account.UID)

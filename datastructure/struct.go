@@ -46,7 +46,7 @@ func GetLoanAccountStruct() LoanAccount {
 	return loanAccount1
 }
 
-func GetLoanAccounts(total int) map[string]LoanAccount {
+func GenerateLoanAccounts(total int) map[string]LoanAccount {
 
 	lasm := make(map[string]LoanAccount)
 
