@@ -38,7 +38,9 @@ type PayBill struct {
 	Total           float64 // total
 }
 
-// reciever arguments (OOP Style)
+// reciever arguments (OOP Style) also it's reference function
+// if we had 1000 loan account running it's will have the same GetBalance to use
+// STOP WORRY ABOUT MEMORY LEAKS!!!
 func (account *LoanAccount) GetBalance() float64 { // get balance
 	return account.Balance
 }
