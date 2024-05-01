@@ -7,6 +7,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/idontknowtoobrother/go-example/grade"
 	"github.com/idontknowtoobrother/go-example/hexafu"
+	"github.com/idontknowtoobrother/go-example/loop"
 	"github.com/idontknowtoobrother/go-example/pracconst"
 )
 
@@ -28,4 +29,8 @@ func main() {
 
 	gradeInfo := fmt.Sprintf("GRADE=%s", grade.GetGrade(50))
 	fmt.Println(gradeInfo)
+
+	loop.ForLoop()
+	loop.DoWhileLoop()
+	loop.WhileLoop()
 }
