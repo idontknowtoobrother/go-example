@@ -6,6 +6,10 @@ func GetStructure(structureType string) interface{} {
 		return GetArray()
 	} else if structureType == "slice" {
 		return GetSlice()
+	} else if structureType == "map" {
+		return GetIntMap()
+	} else if structureType == "struct" {
+		return GetLoanAccountStruct()
 	}
 
 	return nil

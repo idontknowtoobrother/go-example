@@ -39,7 +39,3 @@ func IsKeyExistInMap(uid string) (string, bool) {
 	value, ok := userNameMap[uid]
 	return value, ok
 }
-
-func GetUserMap() {
-
-}

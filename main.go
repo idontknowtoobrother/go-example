@@ -58,6 +58,17 @@ func main() {
 		fmt.Printf("Not found key=%s exist value=NULL\n", findingKey)
 	}
 	fmt.Println("TwoSum: nums={1,4,5,2} target=6 / result=", leetcode.TwoSum([]int{1, 4, 5, 2}, 6))
+
+	exLoanAccountStruc, ok := datastructure.GetStructure("struct").(datastructure.LoanAccount)
+	if ok {
+		fmt.Println("Loan account struct=", exLoanAccountStruc)
+		fmt.Println("Loan account.ACCID=", exLoanAccountStruc.ACCID)
+		fmt.Println("Loan account.UID=", exLoanAccountStruc.UID)
+		fmt.Println("Loan account.TotalLoan=", exLoanAccountStruc.TotalLoan)
+		fmt.Println("Loan account.Balance=", exLoanAccountStruc.Balance)
+		fmt.Println("Loan account.Transactions=", exLoanAccountStruc.Transactions)
+	}
+
 }
 
 func getGradeWithGradeMap(gradeMap map[int]string, score int) string {
